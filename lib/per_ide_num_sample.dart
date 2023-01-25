@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:memory/extension.dart';
+//importしないと使えないので、importする
+import 'package:memory/widgets/custom_form_widget.dart';
 
-class PerIdeNum extends StatefulWidget {
-  const PerIdeNum({super.key, required this.title});
+class PerIdeNumSample extends StatefulWidget {
+  const PerIdeNumSample({super.key, required this.title});
   final String title;
   @override
-  State<PerIdeNum> createState() => _PerIdeNumState();
+  State<PerIdeNumSample> createState() => _PerIdeNumSampleState();
 }
 
-class _PerIdeNumState extends State<PerIdeNum> {
+class _PerIdeNumSampleState extends State<PerIdeNumSample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,19 +61,10 @@ class _PerIdeNumState extends State<PerIdeNum> {
                 bottom: 5,
               ),
               child: Column(
-                children: const <Widget>[
-                  TextField(
-                    decoration: InputDecoration(
-                        border: InputBorder.none, hintText: 'タイトル'),
-                  ),
-                  TextField(
-                    decoration: InputDecoration(
-                        border: InputBorder.none, hintText: '番号'),
-                  ),
-                  TextField(
-                    decoration: InputDecoration(
-                        border: InputBorder.none, hintText: '備考'),
-                  ),
+                children: <Widget>[
+                  //カスタムしたTextFieldを配置。このウィジェット自体も都度、内容を変更するのでconstは付かない
+                  CustomFormWidget("タイトル", 30),
+                  CustomFormWidget("備考", double.infinity),
                 ],
               )),
         ],
